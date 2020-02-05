@@ -1,7 +1,7 @@
 #
 #---- BASE NODE -----
 #this uses alpine as the base and installs requirements to ensure a smaller container
-FROM node:10-alpine AS base
+FROM node:12-alpine AS base
 RUN apk update &&  apk add --no-cache --update nodejs nodejs-npm tini
 WORKDIR /root/app
 ENTRYPOINT ["/sbin/tini", "--"]

@@ -1,3 +1,7 @@
+# Cloned
+
+This project is cloned from [react-component-library](https://github.com/HarveyD/react-component-library), in order to display a bug in storybook interaction with docker.
+
 # React Component Library
 
 This project skeleton was created to help people get started with creating their own React component library using:
