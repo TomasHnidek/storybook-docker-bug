@@ -14,11 +14,13 @@ COPY src src
 #this will install all dependencies and prod dependencies for later consumption
 FROM base AS dependencies
 RUN npm install
+RUN npm run build-storybook
 
 #---- test install ----
 # run tests here
 EXPOSE 6006
 #---- release ----
 FROM base AS release
-COPY --from=dependencies /root/app/ ./
-CMD ["npm", "run", "storybook"]
+COPY --from=dependencies /root/app/node_modules ./node_modules
+COPY --from=dependencies /root/app/storybook-static ./storybook-static
+CMD ["npm", "run", "server"]
